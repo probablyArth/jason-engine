@@ -11,7 +11,7 @@ Here is a simple(or complex (?)) implementation in typescript.
 ## Why?
 
 I created a basic type-safe ORM library for json files (here's a [link](https://github.com/probablyarth/jason) to that), last year and published it to npm.
-However there were many more things I could add, and I have been getting more and more curious about how databases work every since I discussed it with one of my mentors and how can I make one for myself.
+However there were many more things I could add, and I have been getting more and more curious about how databases work every since I discussed indexes with one of my mentors and that led me implementing it in the library and it just made me more curious that I wanted to make it into a full-fledged database system.
 
 ## Planned features
 
