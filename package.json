@@ -5,10 +5,18 @@
   "license": "MIT",
   "target": "ES2016",
   "devDependencies": {
-    "typescript": "^5.4.5",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "zod": "^3.22.4"
+  },
+  "scripts": {
+    "lint": "eslint --ext .ts"
   }
 }
