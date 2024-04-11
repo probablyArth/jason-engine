@@ -2,6 +2,10 @@
 
 A full fledged database engine over json files.
 
+### Runtime
+
+BunJS v1.1.3
+
 ## Project Status - [SPIKE](<https://en.wikipedia.org/wiki/Spike_(software_development)>)
 
 I have no idea how I am going to do this, but here we go.
