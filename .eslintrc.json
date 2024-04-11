@@ -10,7 +10,6 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  "rules": {},
   "env": {
     "browser": true,
     "es2021": true

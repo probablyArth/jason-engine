@@ -1,8 +1,10 @@
-import { resolve } from "node:path";
-import { METADATA_PATH } from "./constants/paths";
-import { MetadataSchema } from "./schemas/Engine";
-import { filePathToName, folderExists } from "./utils/fs";
-import { BunFile } from "bun";
+import { resolve } from 'node:path';
+import { METADATA_PATH } from './constants/paths';
+import { MetadataSchema } from './schemas/Engine';
+import { filePathToName, folderExists } from './utils/fs';
+import { type BunFile } from 'bun';
+import { ZodSchema } from 'zod';
+import type { Metadata } from './types/Engine';
 
 export class Engine {
   //TODO
@@ -11,16 +13,16 @@ export class Engine {
 
   constructor(path: string) {
     if (!folderExists(path)) {
-      throw new Error("Invalid Path");
+      throw new Error('Invalid Path');
     }
     this.basePath = path;
   }
 
   async initialize() {
     if (!resolve(this.basePath, METADATA_PATH)) {
-      throw new Error("Corrupt database, metadata not found.");
+      throw new Error('Corrupt database, metadata not found.');
     }
-    const metadata = await this.#deserializeFile({
+    const metadata = await this.#deserializeFile<Metadata>({
       filePath: METADATA_PATH,
       schema: MetadataSchema,
     });
@@ -32,7 +34,7 @@ export class Engine {
     schema,
   }: {
     filePath: string;
-    schema: Zod.ZodObject<any>;
+    schema: ZodSchema<T>;
   }): Promise<T> {
     const absoluteFilePath = resolve(this.basePath, filePath);
     const fileName = filePathToName(absoluteFilePath);
