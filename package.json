@@ -1,0 +1,14 @@
+{
+  "name": "jason-engine",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "target": "ES2016",
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  }
+}
