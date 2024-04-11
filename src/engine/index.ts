@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
-import { METADATA_PATH } from './constants/paths';
-import { MetadataSchema, type Metadata } from './schemas/Engine';
-import { filePathToName, folderExists } from './utils/fs';
+import { METADATA_PATH } from 'constants/paths';
+import { MetadataSchema, type Metadata } from 'schemas/Engine';
+import { filePathToName, folderExists } from 'utils/fs';
 import { type BunFile } from 'bun';
 import { ZodSchema } from 'zod';
 
@@ -9,12 +9,15 @@ export class Engine {
   //TODO
   // configuration: page-size -> no. of rows
   basePath: string;
+  page_size: number;
+  metadata: Metadata | undefined;
 
-  constructor(path: string) {
+  constructor(path: string, page_size: number = 3) {
     if (!folderExists(path)) {
       throw new Error('Invalid Path');
     }
     this.basePath = path;
+    this.page_size = page_size;
   }
 
   async initialize() {
@@ -25,7 +28,7 @@ export class Engine {
       filePath: METADATA_PATH,
       schema: MetadataSchema,
     });
-    console.log({ metadata });
+    this.metadata = metadata;
   }
 
   async #deserializeFile<T>({
