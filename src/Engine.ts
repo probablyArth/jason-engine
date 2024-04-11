@@ -1,10 +1,9 @@
 import { resolve } from 'node:path';
 import { METADATA_PATH } from './constants/paths';
-import { MetadataSchema } from './schemas/Engine';
+import { MetadataSchema, type Metadata } from './schemas/Engine';
 import { filePathToName, folderExists } from './utils/fs';
 import { type BunFile } from 'bun';
 import { ZodSchema } from 'zod';
-import type { Metadata } from './types/Engine';
 
 export class Engine {
   //TODO
