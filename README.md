@@ -22,3 +22,5 @@ _features marked with (?) are optional and will be figured out as we go_
 - Indexes
 - Authentication and Authorization (?)
 - sharding (?)
+
+Also this is not an exhaustive list, as mentioned I'm figuring this out as I go.
