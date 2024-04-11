@@ -5,8 +5,8 @@
   "license": "MIT",
   "target": "ES2016",
   "devDependencies": {
-    "@types/node": "^20.12.7",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "@types/bun": "latest"
   },
   "dependencies": {
     "zod": "^3.22.4"

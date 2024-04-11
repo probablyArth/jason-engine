@@ -1,8 +1,8 @@
-import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { METADATA_PATH } from "./constants/paths";
 import { MetadataSchema } from "./schemas/Engine";
 import { filePathToName, folderExists } from "./utils/fs";
+import { BunFile } from "bun";
 
 export class Engine {
   //TODO
@@ -14,34 +14,37 @@ export class Engine {
       throw new Error("Invalid Path");
     }
     this.basePath = path;
-    if (!resolve(path, METADATA_PATH)) {
+  }
+
+  async initialize() {
+    if (!resolve(this.basePath, METADATA_PATH)) {
       throw new Error("Corrupt database, metadata not found.");
     }
-    const metadata = this.#deserializeFile({
+    const metadata = await this.#deserializeFile({
       filePath: METADATA_PATH,
       schema: MetadataSchema,
     });
     console.log({ metadata });
   }
 
-  #deserializeFile<T>({
+  async #deserializeFile<T>({
     filePath,
     schema,
   }: {
     filePath: string;
     schema: Zod.ZodObject<any>;
-  }): T {
+  }): Promise<T> {
     const absoluteFilePath = resolve(this.basePath, filePath);
     const fileName = filePathToName(absoluteFilePath);
-    let buffer: Buffer;
+    let buffer: BunFile;
     try {
-      buffer = readFileSync(absoluteFilePath);
+      buffer = Bun.file(absoluteFilePath);
     } catch (e) {
       throw new Error(`Invalid ${fileName} file.`);
     }
     let dataObject: T;
     try {
-      dataObject = JSON.parse(buffer.toString()) as T;
+      dataObject = (await buffer.json()) as T;
     } catch (e) {
       throw new Error(`Invalid ${fileName} file.`);
     }
