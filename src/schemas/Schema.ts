@@ -10,4 +10,4 @@ export const SchemaFieldSchema = z.object({
 });
 
 export const SchemaSchema = z.record(z.string(), SchemaFieldSchema);
-export type SchemaType = z.infer<typeof SchemaSchema>;
+export type Schema = z.infer<typeof SchemaSchema>;

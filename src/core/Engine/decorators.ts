@@ -1,4 +1,4 @@
-import type { Engine } from 'engine';
+import type { Engine } from './index';
 
 export function ensureInitialized(
   target: Engine,
