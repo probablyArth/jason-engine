@@ -1,4 +1,4 @@
-import { SchemaSchema, type SchemaType } from 'schemas/Schema';
+import { SchemaSchema, type Schema as SchemaType } from 'schemas/Schema';
 
 export class Schema {
   schema: SchemaType;
