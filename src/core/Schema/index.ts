@@ -4,11 +4,10 @@ export class Schema {
   schema: SchemaType;
   constructor(schema: SchemaType) {
     this.schema = schema;
-    this.#validateSchema();
   }
 
-  #validateSchema() {
-    if (!SchemaSchema.safeParse(this.schema).success)
+  async validateSchema() {
+    if (!(await SchemaSchema.safeParseAsync(this.schema)).success)
       throw new Error('Invalid schema.');
   }
 }

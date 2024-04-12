@@ -7,6 +7,9 @@ export const SchemaFieldSchema = z.object({
     z.literal('Number'),
     z.literal('Decimal'),
   ]),
+  unique: z.optional(z.boolean()),
+  required: z.optional(z.boolean()),
+  default: z.any(),
 });
 
 export const SchemaSchema = z.record(z.string(), SchemaFieldSchema);

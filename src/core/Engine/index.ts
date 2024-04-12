@@ -4,6 +4,8 @@ import { MetadataSchema, type Metadata } from 'schemas/Engine';
 import { filePathToName, folderExists } from 'utils/fs';
 import { type BunFile } from 'bun';
 import { ZodSchema } from 'zod';
+import type { Schema as SchemaType } from 'schemas/Schema';
+import { Schema } from 'c/Schema';
 
 export class Engine {
   //TODO
@@ -18,6 +20,13 @@ export class Engine {
     }
     this.basePath = path;
     this.page_size = page_size;
+  }
+
+  async createTable(name: string, schema: SchemaType) {
+    if (this.metadata!.tables.includes(name))
+      throw new Error(`Table already exists.\nCreating: ${name}`);
+    const tableSchema = new Schema(schema);
+    await tableSchema.validateSchema();
   }
 
   async initialize() {
