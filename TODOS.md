@@ -1,3 +1,4 @@
 - figuring out how to store schemas
 - make your own schema constructor??
 - think about event driven pattern and various events
+- Debouncing is cool, but what if the program crashes in between. how do we restore the saved data which wasn't actually stored?
