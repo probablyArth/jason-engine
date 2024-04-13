@@ -8,8 +8,9 @@ export class Schema {
   }
 
   async validateSchema() {
-    if (!(await SchemaSchema.safeParseAsync(this.schema)).success)
+    if (!(await SchemaSchema.safeParseAsync(this.schema)).success) {
       throw new Error('Invalid schema.');
+    }
     Object.keys(this.schema).forEach(key => {
       const column = this.schema[key];
       if (column.default !== undefined) {
