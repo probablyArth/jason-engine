@@ -1,0 +1,14 @@
+{
+  "clearMocks": true,
+  "coverageProvider": "v8",
+  "moduleFileExtensions": ["ts", "js", "json", "node"],
+
+  "testMatch": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
+  "transform": {
+    "^.+\\.(ts|ts)$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^src/(.*)$": ["<rootDir>/src/$1"]
+  },
+  "moduleDirectories": ["node_modules", "src"]
+}

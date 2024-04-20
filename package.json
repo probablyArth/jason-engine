@@ -5,18 +5,26 @@
   "license": "MIT",
   "target": "ES2016",
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@types/bun": "latest",
+    "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
     "prettier": "^3.2.5",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2",
+    "tsconfig-paths": "^4.2.0",
+    "tscpaths": "^0.0.9",
     "typescript": "^5.4.5"
   },
   "dependencies": {
     "zod": "^3.22.4"
   },
   "scripts": {
-    "lint": "eslint --ext .ts"
+    "build": "tsc; tscpaths -p tsconfig.json -s src -o dist",
+    "lint": "eslint ."
   }
 }
