@@ -1,7 +1,7 @@
+<p align="center"><img src="https://api.lucabubi.me/chart?username=probablyarth&repository=jason-engine&color=orange" href="star history"></img></p>
+
 # jason-engine
-
 A full fledged database engine over json files.
-
 ### Runtime
 
 BunJS v1.1.3
