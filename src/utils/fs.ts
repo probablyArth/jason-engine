@@ -13,13 +13,7 @@ export const folderExists = (path: string) => {
   return stats.isDirectory();
 };
 
-export const deserializeFile = async <T>({
-  filePath,
-  schema,
-}: {
-  filePath: string;
-  schema: ZodSchema<T>;
-}): Promise<T> => {
+export const deserializeFile = async <T>({ filePath, schema }: { filePath: string; schema: ZodSchema<T> }): Promise<T> => {
   const absoluteFilePath = resolveSync(filePath, basePath);
   const fileName = filePathToName(absoluteFilePath);
   let buffer: BunFile;
