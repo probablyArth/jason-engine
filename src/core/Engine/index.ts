@@ -36,7 +36,7 @@ export class JasonEngine {
     await tableSchema.validateSchema();
 
     this.metadata.data.tables[normalizedTableName] = schema;
-    this.metadata.save();
+    await this.metadata.save();
 
     return normalizedTableName;
   }
