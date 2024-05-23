@@ -15,7 +15,7 @@ export class Schema {
       const column = this.schema[key];
       if (column.default !== undefined) {
         if (!TypeToSchema[column.type]().safeParse(column.default).success) {
-          throw new Error(`Invalid default value for type ${column.type}, received: ${column.default}`);
+          throw new Error(`Invalid default value for type ${column.type}. required: ${column.type} received: ${typeof column.default}`);
         }
       }
     });
